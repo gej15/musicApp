@@ -24,6 +24,10 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Search Page <span class="sr-only">(current)</span></a>
             </li>
+            <form class="form-search">
+              <input type="text" class="input-medium search-query" id="artistSearch">
+              <button type="submit" class="btn">Search</button>
+            </form>
           </ul>
           <span class="navbar-text userName">
             User Name
@@ -35,6 +39,8 @@
             <h3 id='eventTitle'>Upcoming Events</h3>
             <ul id='events'>
             </ul>
+            <h3 id='topTracks'>Featured Tracks</h3>
+            <div id='spotifyPlayer'><iframe src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
         </div>
       <div class="w-50">
       <img src=http://placekitten.com/200/200>
@@ -50,6 +56,6 @@
        <div class='border col-lg-8'></div>
    </div>
 
-    
+    <script src="test.js"></script>
     </body>
 </html>
