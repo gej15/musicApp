@@ -3,9 +3,13 @@ $(document).ready(function(){
 
     $("#artistSearch").on("click", function(event) {
     event.preventDefault();
-    location.href = 'artistPage.html'
-    let newArtist = $('#artistName').val().trim()
+    let newArtist = $('#newArtist').val().trim()
+    localStorage.setItem('artist', JSON.stringify(newArtist))
     console.log(newArtist)
+    
+    location.href = 'artistPage.html'
+   
+
 })
 //     $("#artistSearch").click(function(event){
 //       event.preventDefault();
@@ -13,9 +17,12 @@ $(document).ready(function(){
 //     console.log(newArtist)
 // })
    
+let currentArtist = JSON.parse(localStorage.getItem('artist'))
+
+$('#artistName').text(currentArtist)
 
 function testEvents() {
-    let testUrlEvents = 'https://rest.bandsintown.com/artists/cold%20war%20kids/events?app_id=1e140eabdce95250b1ad6075934a113d'
+    let testUrlEvents = 'https://rest.bandsintown.com/artists/' + currentArtist + '/events?app_id=1e140eabdce95250b1ad6075934a113d'
     $.ajax({
         url: testUrlEvents,
         method: 'GET',
@@ -26,7 +33,7 @@ function testEvents() {
                     let city = response[i].venue.city
                     // console.log (city)
                     let date = moment(response[i].datetime).format('MMM Do');
-                    // console.log(date)
+                    console.log(response[i].datetime)
                     let event = $('<li>').text(date + " " + city) 
                     event.attr({
                         src: response[i].offers[0].url,
