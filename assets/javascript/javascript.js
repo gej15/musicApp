@@ -46,3 +46,22 @@ function move() {
 }
 
 });
+
+//  lastFM API
+
+function lastFMevent() {
+    // let currentArtist = "Metallica"
+    let lastFM_URL= "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + currentArtist + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";    
+    $.ajax({
+        url: lastFM_URL,
+        method: 'GET',
+    })
+    .then(function(response){
+    console.log(response);
+    console.log (response.artist.bio.summary);
+    let lastFMsummary = response.artist.bio.summary;
+    let relatedArtist = response.artist.similar.artist
+    $('#bio').append(lastFMsummary);
+    console.log(relatedArtist)
+    })}
+lastFMevent();
