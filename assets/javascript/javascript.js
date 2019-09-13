@@ -1,6 +1,6 @@
 
 function testEvents() {
-    let testUrlEvents = 'https://rest.bandsintown.com/artists/cold%20war%20kids/events?app_id=1e140eabdce95250b1ad6075934a113d'
+    let testUrlEvents = 'https://rest.bandsintown.com/artists/cold+war+kids/events?app_id=1e140eabdce95250b1ad6075934a113d'
     $.ajax({
         url: testUrlEvents,
         method: 'GET',
