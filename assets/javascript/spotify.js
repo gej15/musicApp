@@ -11,7 +11,7 @@ $("#artistSearch").submit(function(e) {
 
         search1 = search.replace(re, '+');
         
-        let accessToken = "BQA5iR8ltjj0UxZtIvalrqkkdkAeaqjA8fXn5OfaMnCcPbnpEuN7lbLkTeU74uSwJ3JuZQ-4DxXTQUNBt1EYbNmCeGAe64UOxul_CYQjLD1GDlxzjYaBWsbR3Rlt6rtVIw-5nnCJOGTciZeOyxi2oxEbNdPgk0s"
+        let accessToken = "BQCa_1pGtqtfIfJQpLU_dDV_snkHaPreYIZyFtJkh7HIu9VKk2-UXJOPyZQ_3dFIJxrV5nK8iyxoW_fHJ6yOm4smw_APb6WbbN-aZ4EfRWgqFDk66Jw0rgeV80dCdbPh8wWVRLjy_-lPpnoYLrc96jwsUX4TpFw"
         let spotifyApi = 'https://api.spotify.com/v1/search?query=' + search1 + '&type=artist'
         $.ajax({
             url: spotifyApi,
@@ -26,7 +26,7 @@ $("#artistSearch").submit(function(e) {
             .then(function(response){
                 let spotifyId = response.artists.items[0].id;
                 $("#artistName").html(response.artists.items[0].name);
-                $("#artistImage").attr("src", response.artists.items[0].images[1].url)
+                $("#artistImage").attr("src", response.artists.items[0].images[0].url)
                 $("#spotifyPlayer").attr("src", "https://open.spotify.com/embed/artist/"+ spotifyId )
             })
         
