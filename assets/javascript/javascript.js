@@ -58,8 +58,11 @@ function move() {
 
 function lastFMevent() {
     // let currentArtist = "Metallica"
+FM_URL= "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + search1 + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";    
+
     let lastFM_URL= "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + currentArtist + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";  
     let x = "";
+
     $.ajax({
         url: lastFM_URL,
         method: 'GET',
