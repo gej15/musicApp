@@ -1,18 +1,39 @@
-// var firebaseConfig = {
-//     apiKey: "AIzaSyCyCbn5MvoPEzdxW_74N-f_cj0hm88IJBg",
-//     authDomain: "musicapp-66792.firebaseapp.com",
-//     databaseURL: "https://musicapp-66792.firebaseio.com",
-//     projectId: "musicapp-66792",
-//     storageBucket: "",
-//     messagingSenderId: "933977892149",
-//     appId: "1:933977892149:web:7ad31136eac2c48bcf587c"
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-
-//   const database = firebase.database()
-
 $(document).ready(function(){
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCyCbn5MvoPEzdxW_74N-f_cj0hm88IJBg",
+    authDomain: "musicapp-66792.firebaseapp.com",
+    databaseURL: "https://musicapp-66792.firebaseio.com",
+    projectId: "musicapp-66792",
+    storageBucket: "musicapp-66792.appspot.com",
+    messagingSenderId: "933977892149",
+    appId: "1:933977892149:web:7ad31136eac2c48bcf587c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    
+      let database = firebase.database();
+
+    $("#registerUser").on("click", function(event) {
+        //Prevent form from submitting
+        event.preventDefault();
+        
+        // Get the input values
+        let userName = $('#userName').val().trim()
+        let password = $('#password').val().trim()
+        let firstName = $('#firstName').val().trim()
+        
+    
+          // Save the new price in Firebase
+          database.ref(userName).set({
+            password,
+            firstName,
+          })
+    
+          console.log(userName)
+          console.log(password)
+          console.log(firstName)
+        })
 
  $("#artistSearch").on("click", function(event) {
     event.preventDefault();

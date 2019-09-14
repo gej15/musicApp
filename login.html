@@ -26,13 +26,31 @@
                 <button type="submit" id=artistSearch class="btn">Search</button>
             </form>
             </ul>
-            <span class="navbar-text userName">
-            User Name
-            </span>
+            <div class="dropdown">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Register/Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Register</a>
+                  <a class="dropdown-item" href="#">Login</a>
+                  <a class="dropdown-item" href="#">Signout</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <h1>this is the search page</h1>   
+    <div class="card-body login">
+        <form>
+          <div class="form-group row">
+            <label class='offset-lg-4' for="userNameLogin">User Name</label>
+            <input class="form-control offset-lg-4 col-lg-4" id="userNameLogin" type="text">
+          </div>
+          <div class="form-group row">
+            <label class='offset-lg-4' for="passwordLogin">Password</label>
+            <input class="form-control offset-lg-4 col-lg-4" id="passwordLogin" type="password">
+          </div>
+          <button class="btn btn-primary offset-lg-4" id="loginUser" type="submit1">Submit</button>
+      </form> 
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
