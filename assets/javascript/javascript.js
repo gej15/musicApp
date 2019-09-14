@@ -14,11 +14,7 @@
 
 $(document).ready(function(){
 
-    
-
-
- $("#artistSearch").on("click", function(event) {
-     
+    $("#artistSearch").on("click", function(event) {
     event.preventDefault();
     let newArtist = $('#newArtist').val().trim()
     localStorage.setItem('artist', JSON.stringify(newArtist))
@@ -27,28 +23,9 @@ $(document).ready(function(){
     location.href = 'artistPage.html'
     let search = $("#newArtist").val()
 
- })
+})
 
 let currentArtist = JSON.parse(localStorage.getItem('artist'))
-
-function mainBandPic() {
-    let testUrlPic = 'https://rest.bandsintown.com/artists/' + currentArtist + '?app_id=1e140eabdce95250b1ad6075934a113d'
-                    $.ajax({
-                        url: testUrlPic,
-                        method: 'GET',
-                    })
-                        .then(function(response){
-                            console.log(response)
-                                    let mainBandPic = $('<img>')
-                                    let bandPic = response.thumb_url  
-                                    console.log(bandPic) 
-                                    mainBandPic.attr('src', bandPic)
-                                    console.log(mainBandPic)
-                                    $('#artistImage').append(mainBandPic)
-                                
-                            })
-                    }
-mainBandPic()
 
 
 function testEvents() {
@@ -112,52 +89,20 @@ function lastFMevent() {
             $('#artistName').text(response.artist.name)
             
             for (let i = 0; i < 5; i++){
-                //console.log(response.artist.similar.artist[i])
-                
+                console.log(response.artist.similar.artist[i])
                 let relatedBand = $('<div>');
                 let relatedBandPic = $('<img>')
                 let relatedBandName = $('<p>')
-                let band = response.artist.similar.artist[i].name
-                console.log(band)
-                
-                               //https://rest.bandsintown.com/artists/                                     metallica?app_id=1e140eabdce95250b1ad6075934a113d
-                let testUrl = 'https://rest.bandsintown.com/artists/' + band + '?app_id=1e140eabdce95250b1ad6075934a113d'
-                let bandPic = ''
-                    $.ajax({
-                        url: testUrl,
-                        method: 'GET',
-                    })
-                        .then(function(response){
-                            console.log(response) 
-                            
-                                    bandPic = response.thumb_url  
-                                    console.log(bandPic) 
-                                    relatedBandPic.attr('src', bandPic)
-                                    relatedBandName.text(band)
-                                    relatedBandName.attr({
-                                        class: 'link',
-                                        'bandName': band,
-                                    })
-                                    relatedBand.append(relatedBandPic)
-                                    relatedBand.append(relatedBandName)
-                                    $('#relatedBand').append(relatedBand)
-                                
-                            })
-                    }
+                relatedBandPic.attr('src', response.artist.similar.artist[i].image[0])
+                relatedBandName.text(response.artist.similar.artist[i].name)
+                relatedBand.append(relatedBandPic)
+                relatedBand.append(relatedBandName)
+                $('#relatedBand').append(relatedBand)
+                 
 
               
-            })     
         }
+        //console.log(response.artist.similar.artist[i].name)
+ })}
+
 lastFMevent();
-
-$(document).on('click', '.link', relatedMove)
-function relatedMove() {
-    console.log($(this).attr('bandName'))
-    let newArtist = $(this).attr('bandName')
-    localStorage.setItem('artist', JSON.stringify(newArtist))
-    console.log(newArtist)
-
-    location.href = 'artistPage.html'   
-
- }
-
