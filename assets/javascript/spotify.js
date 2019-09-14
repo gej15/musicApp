@@ -1,8 +1,7 @@
-$(document).ready()
 
-$("#artistSearch").submit(function(e) {
+$("artistForm").submit(function(e) {
 
-        let search = $("#artist_name").val()
+        let search = $("#newArtist").val()
         
         e.preventDefault();
 
@@ -12,7 +11,7 @@ $("#artistSearch").submit(function(e) {
         search1 = search.replace(re, '+');
         
         
-        let accessToken = "BQAh-hy-9raCshnOpMx9sAzmvJ-ccHuQ3FZ51CURv0nC__T894txufAaKy26xiOvDm4vWhs-ovvMPGC9PH3B4cxI034johVlNZuN2PYBj2z1SQCO7PpfDh511V9eQo-hYEluY2TScKi84sF9DRp9RwH7kC4XWYQ"
+        let accessToken = "BQAH7suxxeT3TuOYyaQtbz9n-TAXxEhx2x0euX0MR62BbAp3RmfZ9JPZ_ASy7BcK_TtO2haknKEmED1Z8P-cPoKSsviKhO9YVHOVCV7GwjbChe_D8XtplyWIuFRxh6c5rsLXVa4CjiwE3sCKrwCIwU4mvuyp0zI"
         let spotifyApi = 'https://api.spotify.com/v1/search?query=' + search1 + '&type=artist'
         
         $.ajax({
