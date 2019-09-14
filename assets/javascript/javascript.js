@@ -14,7 +14,7 @@
 
 $(document).ready(function(){
 
-    $("#artistSearch").on("click", function(event) {
+ $("#artistSearch").on("click", function(event) {
     event.preventDefault();
     let newArtist = $('#newArtist').val().trim()
     localStorage.setItem('artist', JSON.stringify(newArtist))
@@ -23,7 +23,7 @@ $(document).ready(function(){
     location.href = 'artistPage.html'
    
 
-})
+ })
 
 let currentArtist = JSON.parse(localStorage.getItem('artist'))
 
@@ -130,6 +130,10 @@ function lastFMevent() {
                                     console.log(bandPic) 
                                     relatedBandPic.attr('src', bandPic)
                                     relatedBandName.text(band)
+                                    relatedBandName.attr({
+                                        class: 'link',
+                                        'bandName': band,
+                                    })
                                     relatedBand.append(relatedBandPic)
                                     relatedBand.append(relatedBandName)
                                     $('#relatedBand').append(relatedBand)
@@ -140,6 +144,15 @@ function lastFMevent() {
               
             })     
         }
-    
-
 lastFMevent();
+
+$(document).on('click', '.link', relatedMove)
+function relatedMove() {
+    console.log($(this).attr('bandName'))
+    let newArtist = $(this).attr('bandName')
+    localStorage.setItem('artist', JSON.stringify(newArtist))
+    console.log(newArtist)
+
+    location.href = 'artistPage.html'   
+
+ }
