@@ -54,21 +54,30 @@ function move() {
 
 });
 
-//  lastFM API
+// lastFM API 
 
 function lastFMevent() {
     // let currentArtist = "Metallica"
-    let lastFM_URL= "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + search1 + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";    
+    let lastFM_URL= "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + currentArtist + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";  
+    let x = "";
     $.ajax({
         url: lastFM_URL,
         method: 'GET',
     })
     .then(function(response){
-    console.log(response);
-    console.log (response.artist.bio.summary);
+    // console.log(response);
+    // console.log (response.artist.bio.summary);
     let lastFMsummary = response.artist.bio.summary;
-    let relatedArtist = response.artist.similar.artist
+    for (i in response.artist.similar.artist) {
+        x += "<h2>" + response.artist.similar.artist[i].name + "</h2>";
+        for (j in response.artist.similar.artist[i].url) {
+          x += response.artist.similar.artist[i].url[j];
+        }
+      }
+    //   We can try to add an img instead of a url link but I do not know how to extract it from the JSON
+    document.getElementById("relatedArtist").innerHTML = x;     
     $('#bio').append(lastFMsummary);
-    console.log(relatedArtist)
+    // console.log(relatedArtist)
     })}
 lastFMevent();
+// updated bio id and related artist id in master html document artistPage.html
