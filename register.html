@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
   <body class='container'>
  
@@ -28,13 +29,12 @@
             </form>
             </ul>
             <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Register/Login
+                <button class="btn btn-secondary btn-sm dropdown-toggle" id=regButton type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Register</a>
-                  <a class="dropdown-item" href="#">Login</a>
-                  <a class="dropdown-item" href="#">Signout</a>
+                  <a class="dropdown-item" id=register href="register.html">Register</a>
+                  <a class="dropdown-item" id=login href="login.html">Login</a>
+                  <a class="dropdown-item" id=signout href="#">Signout</a>
                 </div>
             </div>
         </div>

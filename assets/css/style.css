@@ -1,6 +1,13 @@
+#signout{
+  display: none;
+}
+
+
+
+
 .float-right {
     margin:30px;
-    font-size: 80px;
+    font-size: 20px;
     color:black;
     text-align: left;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
