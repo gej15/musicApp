@@ -34,6 +34,52 @@ $(document).ready(function(){
             console.log(password)
             console.log(firstName)
           })
+
+          //let login = 'login'
+          $("#loginUser").on("click", function(event) {
+            // Prevent form from submitting
+            event.preventDefault();
+            let userName = $('#userNameLogin').val().trim()
+            console.log(userName)
+    
+            //let user = snapshot.val()
+            //onsole.log(user)
+            let name = ""
+            let key = ""
+            let passwordLogin = $('#passwordLogin').val().trim()
+
+            var rootRef = firebase.database().ref(userName);
+                rootRef.once("value")
+                    .then(function(snapshot) {
+                        key = snapshot.val().password;
+                        name = snapshot.val().firstName 
+                        console.log(key)
+                        //if (!userName.exists()) {
+                        //  alert('user dose not exist')
+                        if (key == passwordLogin ) {
+                            $('#regButton').text(name)
+                        } else {
+                            console.log('wrong password')
+                        }
+        
+                        if ($('#regButton').text() !== 'Register/Login') {
+                        document.querySelector('#signout').style.display = 'block'
+                        document.querySelector('#register').style.display = 'none'
+                        document.querySelector('#login').style.display = 'none'
+                        }
+                    })   
+        })
+
+        $('#signout').on('click', function(){
+            $('#login').text('Login')
+            $('#register').text('Register')
+            $('#regButton').text('Register/Login')
+            document.querySelector('#register').style.display = 'block'
+            document.querySelector('#signout').style.display = 'none'
+            document.querySelector('#login').style.display = 'block'
+      
+            console.log('hi')
+          })
   
    $("#artistSearch").on("click", function(event) {
       event.preventDefault();

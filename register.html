@@ -5,9 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
   <body class='container'>
  
@@ -27,7 +29,7 @@
             </form>
             </ul>
             <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id=regButton id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" id=regButton type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Register/Login
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -39,29 +41,35 @@
         </div>
     </nav>
 
-    <div class="card-body login">
-        <form>
+    <div class="card-body">
+        <form class="register">
+            <h2 class=offset-lg-5>Register</h2>
           <div class="form-group row">
-            <label class='offset-lg-4' for="userNameLogin">User Name</label>
-            <input class="form-control offset-lg-4 col-lg-4" id="userNameLogin" type="text">
+            <label class='offset-lg-4' for="userName">User Name</label>
+            <input class="form-control offset-lg-4 col-lg-4" id="userName" type="text">
           </div>
           <div class="form-group row">
-            <label class='offset-lg-4' for="passwordLogin">Password</label>
-            <input class="form-control offset-lg-4 col-lg-4" id="passwordLogin" type="password">
+            <label class='offset-lg-4' for="password">Password</label>
+            <input class="form-control offset-lg-4 col-lg-4" id="password" type="password">
           </div>
-          <button class="btn btn-primary offset-lg-4" id="loginUser" type="submit1">Submit</button>
-      </form> 
+          <div class="form-group row">
+              <label class='offset-lg-4' for='firstName'>First Name</label>
+              <input class="form-control offset-lg-4 col-lg-4" id="firstName" type="text">
+          </div>
+          <button class="btn btn-primary offset-lg-4" id="registerUser" type="submit">Submit</button>
+      </form>   
     
     <!-- Optional JavaScript -->
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   
     <script src="assets/javascript/moment.js"></script>
     <script src='assets/javascript/javascript.js'></script>
-
+    
 
 </body>
 </html>
