@@ -13,7 +13,32 @@ $(document).ready(function(){
     firebase.initializeApp(firebaseConfig);
       
         let database = firebase.database();
-  
+
+
+        let user = JSON.parse(localStorage.getItem('firstName'))
+        console.log(JSON.parse(localStorage.getItem('firstName')))
+        console.log(user)
+        if (user === '') {
+            user = 'Register/Login'
+            console.log(1)
+        } else if (user == null) {
+            user = 'Register/Login'
+            console.log(3)
+        } else {
+            $('#regButton').text(user)
+            console.log(2)
+        }
+
+        $('#regButton').text(user)
+        function loginButtonStart(){
+            if ($('#regButton').text() !== 'Register/Login') {
+                document.querySelector('#signout').style.display = 'block'
+                document.querySelector('#register').style.display = 'none'
+                document.querySelector('#login').style.display = 'none'       
+            }
+        }
+        loginButtonStart()
+
       $("#registerUser").on("click", function(event) {
           //Prevent form from submitting
           event.preventDefault();
@@ -30,9 +55,9 @@ $(document).ready(function(){
               firstName,
             })
       
-            console.log(userName)
-            console.log(password)
-            console.log(firstName)
+            //console.log(userName)
+            // console.log(password)
+            // console.log(firstName)
           })
 
           //let login = 'login'
@@ -40,10 +65,8 @@ $(document).ready(function(){
             // Prevent form from submitting
             event.preventDefault();
             let userName = $('#userNameLogin').val().trim()
-            console.log(userName)
+            // console.log(userName)
     
-            //let user = snapshot.val()
-            //onsole.log(user)
             let name = ""
             let key = ""
             let passwordLogin = $('#passwordLogin').val().trim()
@@ -58,6 +81,8 @@ $(document).ready(function(){
                         //  alert('user dose not exist')
                         if (key == passwordLogin ) {
                             $('#regButton').text(name)
+                            localStorage.setItem('firstName', JSON.stringify(name))
+                            localStorage.setItem('userName', JSON.stringify(userName))
                         } else {
                             console.log('wrong password')
                         }
@@ -71,12 +96,15 @@ $(document).ready(function(){
         })
 
         $('#signout').on('click', function(){
+            user = ''
             $('#login').text('Login')
             $('#register').text('Register')
             $('#regButton').text('Register/Login')
             document.querySelector('#register').style.display = 'block'
             document.querySelector('#signout').style.display = 'none'
             document.querySelector('#login').style.display = 'block'
+            localStorage.setItem('firstName', JSON.stringify(''))
+            localStorage.setItem('userName', JSON.stringify(''))
       
             console.log('hi')
           })
@@ -85,7 +113,7 @@ $(document).ready(function(){
       event.preventDefault();
       let newArtist = $('#newArtist').val().trim()
       localStorage.setItem('artist', JSON.stringify(newArtist))
-      console.log(newArtist)
+    //   console.log(newArtist)
       
       location.href = 'artistPage.html'
      
@@ -101,12 +129,12 @@ $(document).ready(function(){
                           method: 'GET',
                       })
                           .then(function(response){
-                              console.log(response)
+                            //   console.log(response)
                                       let mainBandPic = $('<img>')
                                       let bandPic = response.thumb_url  
-                                      console.log(bandPic) 
+                                    //   console.log(bandPic) 
                                       mainBandPic.attr('src', bandPic)
-                                      console.log(mainBandPic)
+                                    //   console.log(mainBandPic)
                                       $('#artistImage').append(mainBandPic).val()
                                   
                               })
@@ -121,7 +149,7 @@ $(document).ready(function(){
           method: 'GET',
       })
           .then(function(response){
-              console.log(response) 
+            //   console.log(response) 
                   for (i = 0; i < response.length; i++){
                       let city = response[i].venue.city
                       // console.log (city)
@@ -147,7 +175,7 @@ $(document).ready(function(){
   }
   });
   
-  // lastFM API 
+//   lastFM API 
   
   function lastFMevent() {
   
@@ -160,7 +188,7 @@ $(document).ready(function(){
           method: 'GET',
       })
           .then(function(response){
-              //console.log(response);
+              console.log(response);
               //console.log (response.artist.bio.summary);
               let lastFMsummary = response.artist.bio.summary;
               // for (i in response.artist.similar.artist) {
@@ -181,9 +209,7 @@ $(document).ready(function(){
                   let relatedBandPic = $('<img>')
                   let relatedBandName = $('<p>')
                   let band = response.artist.similar.artist[i].name
-                  console.log(band)
-                  
-                                 //https://rest.bandsintown.com/artists/                                     metallica?app_id=1e140eabdce95250b1ad6075934a113d
+                //   console.log(band)
                   let testUrl = 'https://rest.bandsintown.com/artists/' + band + '?app_id=1e140eabdce95250b1ad6075934a113d'
                   let bandPic = ''
                       $.ajax({
@@ -191,10 +217,10 @@ $(document).ready(function(){
                           method: 'GET',
                       })
                           .then(function(response){
-                              console.log(response) 
+                            //   console.log(response) 
                               
                                       bandPic = response.thumb_url  
-                                      console.log(bandPic) 
+                                    //   console.log(bandPic) 
                                       relatedBandPic.attr('src', bandPic)
                                       relatedBandName.text(band)
                                       relatedBandName.attr({
@@ -215,10 +241,10 @@ $(document).ready(function(){
   
   $(document).on('click', '.link', relatedMove)
   function relatedMove() {
-      console.log($(this).attr('bandName'))
+    //   console.log($(this).attr('bandName'))
       let newArtist = $(this).attr('bandName')
       localStorage.setItem('artist', JSON.stringify(newArtist))
-      console.log(newArtist)
+    //   console.log(newArtist)
   
       location.href = 'artistPage.html'   
   

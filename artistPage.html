@@ -10,36 +10,32 @@
     <title>Artist Page</title>   
 </head>
 <body class='container'>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href='index.html'>Music App</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active">
-              <a class="nav-link" href="searchPage.html">Search Page <span class="sr-only">(current)</span></a>
-            </li>
-            <form class="form-search">
-              <input type="text" class="input-medium search-query" id="newArtist">
-              <button type="submit" id=artistSearch class="btn">Search</button>
-          </form>
-          <!-- <a class="nav-link" href="assets/support/support.html">Support the creators</a> -->
-          <!-- if you want to look at a support page uncomment line above (please update with your info) -->
-          </ul>
-          <div class="dropdown">
-            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Register/Login
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href='index.html'>Music App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto ">
+        <li class="nav-item">
+            <a class="nav-link" href='searchPage.html'>Search Page</a>
+        </li>
+        <form class="form-search">
+            <input type="text" class="input-medium search-query" id="newArtist">
+            <button type="submit" id=artistSearch class="btn">Search</button>
+        </form>
+        </ul>
+        <div class="dropdown">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id=regButton id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="register.html">Register</a>
-              <a class="dropdown-item" href="login.html">Login</a>
+              <a class="dropdown-item" id=register href="register.html">Register</a>
+              <a class="dropdown-item" id=login href="login.html">Login</a>
               <a class="dropdown-item" id=signout href="#">Signout</a>
             </div>
-          </div>
         </div>
-       
-      </nav>
+    </div>
+</nav>
       <div class='float-right'>
             <h3 id='eventTitle'>Upcoming Events</h3>
             <ul id='events'>
@@ -60,7 +56,7 @@
    </div>
 
 
-   
+   <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
