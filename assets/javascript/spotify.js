@@ -1,7 +1,8 @@
+$(document).ready()
 
-$("artistForm").submit(function(e) {
+$("#artistSearch").submit(function(e) {
 
-        let search = $("#newArtist").val()
+        let search = $("#artist_name").val()
         
         e.preventDefault();
 
@@ -10,10 +11,8 @@ $("artistForm").submit(function(e) {
 
         search1 = search.replace(re, '+');
         
-        
-        let accessToken = "BQAH7suxxeT3TuOYyaQtbz9n-TAXxEhx2x0euX0MR62BbAp3RmfZ9JPZ_ASy7BcK_TtO2haknKEmED1Z8P-cPoKSsviKhO9YVHOVCV7GwjbChe_D8XtplyWIuFRxh6c5rsLXVa4CjiwE3sCKrwCIwU4mvuyp0zI"
+        let accessToken = "BQCa_1pGtqtfIfJQpLU_dDV_snkHaPreYIZyFtJkh7HIu9VKk2-UXJOPyZQ_3dFIJxrV5nK8iyxoW_fHJ6yOm4smw_APb6WbbN-aZ4EfRWgqFDk66Jw0rgeV80dCdbPh8wWVRLjy_-lPpnoYLrc96jwsUX4TpFw"
         let spotifyApi = 'https://api.spotify.com/v1/search?query=' + search1 + '&type=artist'
-        
         $.ajax({
             url: spotifyApi,
             method: 'GET',
@@ -21,23 +20,19 @@ $("artistForm").submit(function(e) {
                 'Authorization' : 'Bearer ' + accessToken
             },
             success: function(data) {
-              
                 console.log(data);
             }
         })
             .then(function(response){
                 let spotifyId = response.artists.items[0].id;
-                
                 $("#artistName").html(response.artists.items[0].name);
-                $("#artistImage").attr("src", response.artists.items[0].images[0].url);
-                $("#genre").text(response.artists.items[0].genres.join(', '));
-                $("#spotifyPlayer").attr("src", "https://open.spotify.com/embed/artist/"+ spotifyId );
-                console.log(response.artists.items[0].followers);
+                $("#artistImage").attr("src", response.artists.items[0].images[0].url)
+                $("#spotifyPlayer").attr("src", "https://open.spotify.com/embed/artist/"+ spotifyId )
             })
-           
-            
+        
         
     })
+
 
 
 

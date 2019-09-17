@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <title>Artist Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="assets/javascript/moment.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Artist Page</title>   
+   
 </head>
 <body class='container'>
+   <a href="searchPage.html">dsjahf;lkdasjfl;dash</a>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href='index.html'>Music App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,12 +24,10 @@
             <li class="nav-item active">
               <a class="nav-link" href="searchPage.html">Search Page <span class="sr-only">(current)</span></a>
             </li>
-            <form id="artistForm" class="form-search">
-              <input type="text" class="input-medium search-query" id="newArtist">
-              <button type="submit" id=artistSearch class="btn">Search</button>
-          </form>
-          <!-- <a class="nav-link" href="assets/support/support.html">Support the creators</a> -->
-          <!-- if you want to look at a support page uncomment line above (please update with your info) -->
+            <form class="form-search" id="artistSearch">
+              <input type="text" class="input-medium search-query" id="artist_name">
+              <button type="submit" class="btn">Search</button>
+            </form>
           </ul>
           <span class="navbar-text userName">
             User Name
@@ -36,37 +36,26 @@
        
       </nav>
       <div class='float-right'>
-            <iframe src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" id="spotifyPlayer"></iframe>
             <h3 id='eventTitle'>Upcoming Events</h3>
             <ul id='events'>
             </ul>
-          
-               </div>
+            <h3 id='topTracks'>Featured Tracks</h3>
+            <div id='spotifyPlayer'><iframe src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+        </div>
       <div class="w-50">
       <img src=http://placekitten.com/200/200 id="artistImage">
       <h2 id='artistName'>Artist Name</h2>
-      <h3>Bio</h3>
-      <p class="bioText" id='bio'></p>
-      <p class='lryicText'>  this is the space for lyrics if we can find them Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore rem, optio consequatur possimus voluptatibus est magni architecto corporis dolore?</p>
+      <div id='player'>This is the area where the player will be</div>
+      <h3 id='bio'>Bio</h3>
+      <p class="bioText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores commodi consequuntur laborum neque. Quia qui reprehenderit voluptate explicabo minima dignissimos, molestias nemo error aspernatur. Eius praesentium non labore illo maxime.</p>
+      <h3 id="lyricTitle">Lyric of "song title"</h3>
+      <p class='lryicText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore rem, optio consequatur possimus voluptatibus est magni architecto corporis dolore?</p>
     </div>
    <div>
        <h2>Related Artists</h2>
-       <div class='border col-lg-8' id=relatedBand></div>
+       <div class='border col-lg-8'></div>
    </div>
-
-   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="assets/javascript/moment.js"></script>
-    <script src='assets/javascript/javascript.js'></script> -->
-
-  
-   
-   <script src="assets/javascript/moment.js"></script>
-   
-   <script src="assets/javascript/spotify.js"></script>
-  
-   
+<script src="assets/javascript/spotify.js"></script>
    
     </body>
 </html>
