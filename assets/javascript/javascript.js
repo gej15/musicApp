@@ -16,17 +16,17 @@ $(document).ready(function(){
 
 
         let user = JSON.parse(localStorage.getItem('firstName'))
-        console.log(JSON.parse(localStorage.getItem('firstName')))
-        console.log(user)
+        // console.log(JSON.parse(localStorage.getItem('firstName')))
+        // console.log(user)
         if (user === '') {
             user = 'Register/Login'
-            console.log(1)
+            // console.log(1)
         } else if (user == null) {
             user = 'Register/Login'
-            console.log(3)
+            // console.log(3)
         } else {
             $('#regButton').text(user)
-            console.log(2)
+            // console.log(2)
         }
 
         $('#regButton').text(user)
@@ -66,7 +66,7 @@ $(document).ready(function(){
             // Prevent form from submitting
             event.preventDefault();
             let userName = $('#userNameLogin').val().trim()
-            // console.log(userName)
+            console.log(userName)
     
             let name = ""
             let key = ""
@@ -76,8 +76,9 @@ $(document).ready(function(){
                 rootRef.once("value")
                     .then(function(snapshot) {
                         key = snapshot.val().password;
-                        name = snapshot.val().firstName 
                         console.log(key)
+                        name = snapshot.val().firstName 
+                        console.log(name)
                         //if (!userName.exists()) {
                         //  alert('user dose not exist')
                         if (key == passwordLogin ) {
@@ -121,13 +122,38 @@ $(document).ready(function(){
     //   console.log(newArtist) 
       location.href = 'artistPage.html'
    })
+
+
+   let currentArtist = JSON.parse(localStorage.getItem('artist'))
+
+
+   $('#favorites').on('click', function(){
+    let userName = JSON.parse(localStorage.getItem('userName'))
+        console.log(userName)
+    
+    var rootRef = firebase.database().ref(userName);
+        rootRef.once("value")
+            .then(function(snapshot) {
+                let key = snapshot.val().password;
+                console.log(key)
+                let name = snapshot.val().firstName 
+                console.log(name)
+                let currentFavorites = [snapshot.val().favFolder + ',' + currentArtist]
+                    //resave user in Firebase
+                    database.ref(userName).set({
+                    firstName: name,
+                    password: key,
+                    favFolder: currentFavorites,
+                     })
+                })
+   })
   
-  let currentArtist = JSON.parse(localStorage.getItem('artist'))
+ 
 
   function addBandToFavorites() {
-    $('#favorites').attr("bandOnFavorite", currentArtist)
-}
-addBandToFavorites()
+     $('#favorites').attr("bandOnFavorite", currentArtist)
+    }
+    addBandToFavorites()
   
   function mainBandPic() {
       let testUrlPic = 'https://rest.bandsintown.com/artists/' + currentArtist + '?app_id=1e140eabdce95250b1ad6075934a113d'
@@ -136,7 +162,7 @@ addBandToFavorites()
                           method: 'GET',
                       })
                           .then(function(response){
-                            //   console.log(response)
+                               console.log(response)
                                       let mainBandPic = $('<img>')
                                       let bandPic = response.thumb_url  
                                     //   console.log(bandPic) 
@@ -146,10 +172,10 @@ addBandToFavorites()
                                   
                               })
                       }
-  mainBandPic()
+    mainBandPic()
   
   
-  function testEvents() {
+     function testEvents() {
       let testUrlEvents = 'https://rest.bandsintown.com/artists/' + currentArtist + '/events?app_id=1e140eabdce95250b1ad6075934a113d'
       $.ajax({
           url: testUrlEvents,
@@ -180,7 +206,7 @@ addBandToFavorites()
       console.log($(this).attr('src'))
       window.open($(this).attr('src'))
   }
-  });
+ 
   
 //   lastFM API 
   
@@ -195,7 +221,7 @@ addBandToFavorites()
           method: 'GET',
       })
           .then(function(response){
-              console.log(response);
+            //   console.log(response);
               //console.log (response.artist.bio.summary);
               let lastFMsummary = response.artist.bio.summary;
               $('#bio').append(lastFMsummary);
@@ -205,7 +231,10 @@ addBandToFavorites()
                   //console.log(response.artist.similar.artist[i])
                   
                   let relatedBand = $('<div>');
+                        relatedBand.attr('class', 'relatedArtist')
+
                   let relatedBandPic = $('<img>')
+                        relatedBandPic.attr('class', 'relatedArtistPic')
                   let relatedBandName = $('<p>')
                   let band = response.artist.similar.artist[i].name
                 //   console.log(band)
@@ -229,7 +258,7 @@ addBandToFavorites()
                                       relatedBand.append(relatedBandPic)
                                       relatedBand.append(relatedBandName)
                                       $('#relatedBand').append(relatedBand)
-                                  
+                                      //$('#relatedBand').attr('class', 'border')
                               })
                       }
   
@@ -246,5 +275,57 @@ addBandToFavorites()
     //   console.log(newArtist)
   
       location.href = 'artistPage.html'   
-  
-   }
+  }
+ 
+
+   $('#welcome').text('Welcome ' + JSON.parse(localStorage.getItem('firstName')))
+
+//    if ($("body").data("title") === "userPage") {
+    // console.log(currentArtist)
+    let userName = JSON.parse(localStorage.getItem('userName'))
+    // console.log(userName)
+
+        let rootRef = firebase.database().ref(userName);
+        let favoriteBands = ''
+            rootRef.once("value")
+                .then(function(snapshot) {
+                    console.log(userName)
+                    favoriteBands = snapshot.val().favFolder
+                    console.log(favoriteBands)
+                    bandsString = favoriteBands.toString()
+                    console.log(bandsString)
+                    let bandsArray = bandsString.split(',')
+                    console.log(bandsArray)
+                    console.log(userName)
+                   
+                    for (let i = 0; i < bandsArray.length; i++) {
+                        let bandUrl = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '?app_id=1e140eabdce95250b1ad6075934a113d'
+                        $.ajax({
+                            url: bandUrl,
+                            method: 'GET',
+                        })
+                        .then(function(response){
+                            let favoriteBand = $('<div>');
+                            favoriteBand.attr('class', 'relatedArtist')
+
+                            let favoriteBandPic = $('<img>')
+                                    favoriteBandPic.attr('class', 'relatedArtistPic')
+                                    bandPic = response.thumb_url 
+                                    favoriteBandPic.attr('src', bandPic)
+                            let favoriteBandName = $('<p>')
+                            let band = response.name
+                            favoriteBandName.attr({
+                                class: 'link',
+                                'bandName': band,
+                                })
+                            favoriteBandName.text(band)
+                            favoriteBand.append(favoriteBandPic)
+                            favoriteBand.append(favoriteBandName)
+                            $('#savedArtist').append(favoriteBand)
+                        })
+                    
+                }
+                
+
+            })   
+        })     

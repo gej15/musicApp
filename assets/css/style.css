@@ -6,6 +6,27 @@
   display: none;
 }
 
+.relatedArtist {
+  float: left;
+  display: inline;
+  width: 200px;
+  margin-left: 15px;
+}
+ .relatedArtistPic {
+   width: 150px;
+   height: 150px;
+   margin-top: 8px;
+ }
+
+ #relatedBand {
+   border: black solid 5px;
+   width: 900px;
+   height: 400px;
+ }
+
+ #favorites {
+   margin-bottom: 6px;
+ }
 
 
 
