@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Artist Page</title>   
 </head>
-<body class='container'>
+<body data-title='artistPage' class='container'>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href='index.html'>Music App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,7 @@
       <div class="w-50">
       <div id="artistImage"></div>
       <h2 id='artistName'>Artist Name</h2>
+      <button id=favorites>Add To Favorites</button>
       <div id='spotifyPlayer'><iframe src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
       <h3>Bio</h3>
       <p class="bioText" id='bio'></p>

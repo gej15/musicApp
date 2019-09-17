@@ -34,7 +34,10 @@ $(document).ready(function(){
             if ($('#regButton').text() !== 'Register/Login') {
                 document.querySelector('#signout').style.display = 'block'
                 document.querySelector('#register').style.display = 'none'
-                document.querySelector('#login').style.display = 'none'       
+                document.querySelector('#login').style.display = 'none'  
+                if ($("body").data("title") === "artistPage") {
+                 document.querySelector('#favorites').style.display = 'block'
+                }
             }
         }
         loginButtonStart()
@@ -49,18 +52,16 @@ $(document).ready(function(){
           let firstName = $('#firstName').val().trim()
           
       
-            // Save the new price in Firebase
+            // Save the new user  in Firebase
             database.ref(userName).set({
               password,
               firstName,
             })
-      
             //console.log(userName)
-            // console.log(password)
-            // console.log(firstName)
+            //console.log(password)
+            //console.log(firstName)
           })
 
-          //let login = 'login'
           $("#loginUser").on("click", function(event) {
             // Prevent form from submitting
             event.preventDefault();
@@ -103,24 +104,30 @@ $(document).ready(function(){
             document.querySelector('#register').style.display = 'block'
             document.querySelector('#signout').style.display = 'none'
             document.querySelector('#login').style.display = 'block'
+            if ($("body").data("title") === "artistPage") {
+                document.querySelector('#favorites').style.display = 'none'
+            }
             localStorage.setItem('firstName', JSON.stringify(''))
             localStorage.setItem('userName', JSON.stringify(''))
-      
             console.log('hi')
           })
+
+     
   
    $("#artistSearch").on("click", function(event) {
       event.preventDefault();
       let newArtist = $('#newArtist').val().trim()
       localStorage.setItem('artist', JSON.stringify(newArtist))
-    //   console.log(newArtist)
-      
+    //   console.log(newArtist) 
       location.href = 'artistPage.html'
-     
-  
    })
   
   let currentArtist = JSON.parse(localStorage.getItem('artist'))
+
+  function addBandToFavorites() {
+    $('#favorites').attr("bandOnFavorite", currentArtist)
+}
+addBandToFavorites()
   
   function mainBandPic() {
       let testUrlPic = 'https://rest.bandsintown.com/artists/' + currentArtist + '?app_id=1e140eabdce95250b1ad6075934a113d'
@@ -191,14 +198,6 @@ $(document).ready(function(){
               console.log(response);
               //console.log (response.artist.bio.summary);
               let lastFMsummary = response.artist.bio.summary;
-              // for (i in response.artist.similar.artist) {
-              //     x += "<h2>" + response.artist.similar.artist[i].name + "</h2>";
-              //     for (j in response.artist.similar.artist[i].url) {
-              //     x += response.artist.similar.artist[i].url[j];
-              //     }
-              // }
-              //   We can try to add an img instead of a url link but I do not know how to extract it from the JSON
-              //document.getElementById("relatedArtist").innerHTML = x;     
               $('#bio').append(lastFMsummary);
               $('#artistName').text(response.artist.name)
               
