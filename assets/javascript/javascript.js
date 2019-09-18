@@ -51,7 +51,9 @@ $(document).ready(function(){
           let userName = $('#userName').val().trim()
           let password = $('#password').val().trim()
           let firstName = $('#firstName').val().trim()
-          let city = $('#userLocation').val().trim()
+          let cityEnrty = $('#userLocation').val().trim()
+          let city =  cityEnrty.charAt(0).toUpperCase() + cityEnrty.slice(1)
+          console.log(city)
           
       
             // Save the new user  in Firebase
@@ -338,22 +340,27 @@ $(document).ready(function(){
                                         method: 'GET',
                                             })
                                         .then(function(response){
-                                            console.log(response) 
-                                                // for (i = 0; i < response.length; i++){
-                                                //     let city = response[i].venue.city
-                                                //     console.log(location)
-                                                //     if (city === location)
-                                                //     console.log(city)
-                                                //     //let date = response[i].datetime
-                                                //     //console.log(response[i].datetime)
-                                                //    // let event = $('<li>').text(city)
-                                                //     //let event = $('<li>').text(date + " " + city) 
-                                                //     // event.attr({
-                                                //     //     src: response[i].offers[0].url,
-                                                //     //     class: 'eventClass'
-                                                    // })   
-                                                }
-                                            })
+                                            //console.log(response) 
+                                                for (i = 0; i < response.length; i++){
+                                                    let city = response[i].venue.city
+                                                    console.log(location)
+                                                    console.log(city)
+
+                                                    if (city === location){
+                                                    //console.log(city)
+                                                    console.log('bingo')
+                                                    let date = moment(response[i].datetime).format('MMM Do')
+                                                    //console.log(response[i].datetime)
+                                                    //let event = $('<p>').text(city)
+                                                    let event = $('<p>').text(date + " " + city) 
+                                                    event.attr({
+                                                        src: response[i].offers[0].url,
+                                                        class: 'eventClass'
+                                                    })   
+                                                    favoriteBand.append(event)
+                                                    }    
+                                        }
+                                     })
                                     favoriteBandName.text(band)
                                     favoriteBand.append(favoriteBandPic)
                                     favoriteBand.append(favoriteBandName)
