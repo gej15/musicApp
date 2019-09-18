@@ -28,7 +28,7 @@ $(".form-search").submit(function(e) {
         })
             .then(function(response){
                 let spotifyId = response.artists.items[0].id;
-                // $("#artistName").html(response.artists.items[0].name);
+                $("#genres").html("Genres: " + response.artists.items[0].genres.join(', '));
                 $("#artistImage").attr("src", response.artists.items[0].images[0].url)
                 $("#spotifyPlayer").attr("src", "https://open.spotify.com/embed/artist/"+ spotifyId )
             })
@@ -82,7 +82,7 @@ $(".form-search").submit(function(e) {
                             relatedBandPic.attr('class', 'relatedArtistPic')
                       let relatedBandName = $('<p>')
                       let band = response.artist.similar.artist[i].name
-                    //   console.log(band)
+                     console.log(response.artist.similar.artist)
                       let testUrl = 'https://rest.bandsintown.com/artists/' + band + '?app_id=1e140eabdce95250b1ad6075934a113d'
                       let bandPic = ''
                           $.ajax({
