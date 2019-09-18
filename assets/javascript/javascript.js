@@ -241,6 +241,9 @@ $(document).ready(function(){
 //                   let relatedBand = $('<div>');
 //                         relatedBand.attr('class', 'relatedArtist')
 
+
+//lastFMevent();
+
 //                   let relatedBandPic = $('<img>')
 //                         relatedBandPic.attr('class', 'relatedArtistPic')
 //                   let relatedBandName = $('<p>')
@@ -366,3 +369,4 @@ $(document).ready(function(){
                     })  
     }
 })   
+

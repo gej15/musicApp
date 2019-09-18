@@ -35,6 +35,81 @@
 
 
 .float-right {
+
+/* background-color:#909000; */
+border-style: inset;
+border-color: #fff;
+border-width: 10px;
+padding: 10px;
+margin:30px;
+font-size: 15px;
+color:black;
+text-align: left;
+-webkit-animation: glow 1s ease-in-out infinite alternate;
+-moz-animation: glow 1s ease-in-out infinite alternate;
+animation: glow 1s ease-in-out infinite alternate;
+color: #0A2061;
+
+}
+
+@-webkit-keyframes glow {
+from {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #400560, 0 0 50px #400560;
+}
+to {
+  text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #400560, 0 0 60px #400560;
+}}
+
+.artistImage{
+}
+
+body {
+background-color: #fff;
+}
+
+.w-50 {
+text-align: center;
+/* background-color:#909000; */
+border-width: 10px;
+border-style: inset;
+border-color: #fff;
+color: #0A2061;
+}
+
+.artistName{
+text-align: center;
+color: #0A2061;
+}
+
+.relatedBand{
+/* background-color:#909000; */
+border-width: 10px;
+border-style: inset;
+border-color: #fff;
+color: #0A2061;
+}
+
+.lryicText{
+/* border-style: solid; */
+}
+
+
+/* CODE PEN */
+
+/* body{
+  background-color: cornsilk;
+  padding: 0px;
+  margin: 0px;
+}
+
+#gradient
+{
+ width: 20%, 20%; 
+ height: 2000px;
+ padding: 100px;
+ margin: 100;
+} */
+
     margin:30px;
     font-size: 20px;
     color:black;
@@ -51,3 +126,4 @@
       text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0A2061, 0 0 50px #0A2061, 0 0 60px #0A2061, 0 0 70px #0A2061, 0 0 80px #0A2061;
     }
   }
+
