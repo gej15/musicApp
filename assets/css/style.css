@@ -1,4 +1,41 @@
+#signout{
+  display: none;
+}
+
+#userLink{
+  display: none;
+}
+
+#favorites {
+  display: none;
+}
+
+.relatedArtist {
+  float: left;
+  display: inline;
+  width: 200px;
+  margin-left: 15px;
+}
+ .relatedArtistPic {
+   width: 150px;
+   height: 150px;
+   margin-top: 8px;
+ }
+
+ #relatedBand {
+   border: black solid 5px;
+   width: 900px;
+   height: 400px;
+ }
+
+ #favorites {
+   margin-bottom: 6px;
+ }
+
+
+
 .float-right {
+
 /* background-color:#909000; */
 border-style: inset;
 border-color: #fff;
@@ -72,3 +109,21 @@ color: #0A2061;
  padding: 100px;
  margin: 100;
 } */
+
+    margin:30px;
+    font-size: 20px;
+    color:black;
+    text-align: left;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0A2061, 0 0 40px #0A2061, 0 0 50px #0A2061, 0 0 60px #0A2061, 0 0 70px 0 0 #0A2061;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0A2061, 0 0 50px #0A2061, 0 0 60px #0A2061, 0 0 70px #0A2061, 0 0 80px #0A2061;
+    }
+  }
+
