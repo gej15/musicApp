@@ -33,6 +33,7 @@ $(document).ready(function(){
         function loginButtonStart(){
             if ($('#regButton').text() !== 'Register/Login') {
                 document.querySelector('#signout').style.display = 'block'
+                document.querySelector('#userLink').style.display = 'block'
                 document.querySelector('#register').style.display = 'none'
                 document.querySelector('#login').style.display = 'none'  
                 if ($("body").data("title") === "artistPage") {
@@ -50,12 +51,14 @@ $(document).ready(function(){
           let userName = $('#userName').val().trim()
           let password = $('#password').val().trim()
           let firstName = $('#firstName').val().trim()
+          let city = $('#userLocation').val().trim()
           
       
             // Save the new user  in Firebase
             database.ref(userName).set({
               password,
               firstName,
+              city,
             })
             //console.log(userName)
             //console.log(password)
@@ -91,6 +94,7 @@ $(document).ready(function(){
         
                         if ($('#regButton').text() !== 'Register/Login') {
                         document.querySelector('#signout').style.display = 'block'
+                        document.querySelector('#userLink').style.display = 'block'
                         document.querySelector('#register').style.display = 'none'
                         document.querySelector('#login').style.display = 'none'
                         }
@@ -104,6 +108,7 @@ $(document).ready(function(){
             $('#regButton').text('Register/Login')
             document.querySelector('#register').style.display = 'block'
             document.querySelector('#signout').style.display = 'none'
+            document.querySelector('#userLink').style.display = 'none'
             document.querySelector('#login').style.display = 'block'
             if ($("body").data("title") === "artistPage") {
                 document.querySelector('#favorites').style.display = 'none'
@@ -139,11 +144,14 @@ $(document).ready(function(){
                 let name = snapshot.val().firstName 
                 console.log(name)
                 let currentFavorites = [snapshot.val().favFolder + ',' + currentArtist]
+                let location = snapshot.val().city
+                console.log(location)
                     //resave user in Firebase
                     database.ref(userName).set({
-                    firstName: name,
-                    password: key,
-                    favFolder: currentFavorites,
+                        firstName: name,
+                        password: key,
+                        favFolder: currentFavorites,
+                        city: location,
                      })
                 })
    })
@@ -182,7 +190,7 @@ $(document).ready(function(){
           method: 'GET',
       })
           .then(function(response){
-            //   console.log(response) 
+            console.log(response) 
                   for (i = 0; i < response.length; i++){
                       let city = response[i].venue.city
                       // console.log (city)
@@ -280,52 +288,81 @@ $(document).ready(function(){
 
    $('#welcome').text('Welcome ' + JSON.parse(localStorage.getItem('firstName')))
 
-//    if ($("body").data("title") === "userPage") {
+   if ($("body").data("title") === "userPage") {
     // console.log(currentArtist)
-    let userName = JSON.parse(localStorage.getItem('userName'))
-    // console.log(userName)
+            let userName = JSON.parse(localStorage.getItem('userName'))
+            // console.log(userName)
 
-        let rootRef = firebase.database().ref(userName);
-        let favoriteBands = ''
-            rootRef.once("value")
-                .then(function(snapshot) {
-                    console.log(userName)
-                    favoriteBands = snapshot.val().favFolder
-                    console.log(favoriteBands)
-                    bandsString = favoriteBands.toString()
-                    console.log(bandsString)
-                    let bandsArray = bandsString.split(',')
-                    console.log(bandsArray)
-                    console.log(userName)
-                   
-                    for (let i = 0; i < bandsArray.length; i++) {
-                        let bandUrl = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '?app_id=1e140eabdce95250b1ad6075934a113d'
-                        $.ajax({
-                            url: bandUrl,
-                            method: 'GET',
-                        })
-                        .then(function(response){
-                            let favoriteBand = $('<div>');
-                            favoriteBand.attr('class', 'relatedArtist')
-
-                            let favoriteBandPic = $('<img>')
-                                    favoriteBandPic.attr('class', 'relatedArtistPic')
-                                    bandPic = response.thumb_url 
-                                    favoriteBandPic.attr('src', bandPic)
-                            let favoriteBandName = $('<p>')
-                            let band = response.name
-                            favoriteBandName.attr({
-                                class: 'link',
-                                'bandName': band,
+                let rootRef = firebase.database().ref(userName);
+                let favoriteBands = ''
+                    rootRef.once("value")
+                        .then(function(snapshot) {
+                            console.log(userName)
+                            favoriteBands = snapshot.val().favFolder
+                            console.log(favoriteBands)
+                            bandsString = favoriteBands.toString()
+                            console.log(bandsString)
+                            let bandsArray = bandsString.split(',')
+                            console.log(bandsArray)
+                            console.log(userName)
+                            let location = snapshot.val().city
+                            //console.log(location)
+                            
+                            for (let i = 1 ; i < bandsArray.length; i++) {
+                                
+                                //console.log(location)
+                                let bandUrl = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '?app_id=1e140eabdce95250b1ad6075934a113d'
+                                $.ajax({
+                                    url: bandUrl,
+                                    method: 'GET',
                                 })
-                            favoriteBandName.text(band)
-                            favoriteBand.append(favoriteBandPic)
-                            favoriteBand.append(favoriteBandName)
-                            $('#savedArtist').append(favoriteBand)
-                        })
-                    
-                }
-                
+                                .then(function(response){
+                                    
+                                    //console.log(location)
+                                    let favoriteBand = $('<div>');
+                                    favoriteBand.attr('class', 'relatedArtist')
 
-            })   
-        })     
+                                    let favoriteBandPic = $('<img>')
+                                            favoriteBandPic.attr('class', 'relatedArtistPic')
+                                            bandPic = response.thumb_url 
+                                            favoriteBandPic.attr('src', bandPic)
+                                    let favoriteBandName = $('<p>')                                        
+                                    let band = response.name
+                                    favoriteBandName.attr({
+                                        class: 'link',
+                                        'bandName': band,
+                                        })
+                                        let testUrlEvents = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '/events?app_id=1e140eabdce95250b1ad6075934a113d'
+                                     $.ajax({
+                                        url: testUrlEvents,
+                                        method: 'GET',
+                                            })
+                                        .then(function(response){
+                                            console.log(response) 
+                                                // for (i = 0; i < response.length; i++){
+                                                //     let city = response[i].venue.city
+                                                //     console.log(location)
+                                                //     if (city === location)
+                                                //     console.log(city)
+                                                //     //let date = response[i].datetime
+                                                //     //console.log(response[i].datetime)
+                                                //    // let event = $('<li>').text(city)
+                                                //     //let event = $('<li>').text(date + " " + city) 
+                                                //     // event.attr({
+                                                //     //     src: response[i].offers[0].url,
+                                                //     //     class: 'eventClass'
+                                                    // })   
+                                                }
+                                            })
+                                    favoriteBandName.text(band)
+                                    favoriteBand.append(favoriteBandPic)
+                                    favoriteBand.append(favoriteBandName)
+                                    $('#savedArtist').append(favoriteBand)
+                                })
+                            
+                        }
+                        
+
+                    })  
+    }
+})   
