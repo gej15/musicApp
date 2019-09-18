@@ -32,7 +32,30 @@ $(".form-search").submit(function(e) {
                 $("#spotifyPlayer").attr("src", "https://open.spotify.com/embed/artist/"+ spotifyId )
             })
       
-  
+            
+                let testUrlEvents = 'https://rest.bandsintown.com/artists/' + search1 + '/events?app_id=1e140eabdce95250b1ad6075934a113d'
+                $.ajax({
+                    url: testUrlEvents,
+                    method: 'GET',
+                })
+                    .then(function(response){
+                      //   console.log(response) 
+                            for (i = 0; i < response.length; i++){
+                                let city = response[i].venue.city
+                                // console.log (city)
+                                let date = moment(response[i].datetime).format('MMM Do');
+                                //console.log(response[i].datetime)
+                                let event = $('<li>').text(date + " " + city) 
+                                event.attr({
+                                    src: response[i].offers[0].url,
+                                    class: 'eventClass'
+            
+                                })   
+                                $('#events').append(event) 
+                            }
+                        })
+                
+            
           
           let lastFM_URL= "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + search1 + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";        
           let x = "";
