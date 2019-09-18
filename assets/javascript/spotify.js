@@ -8,6 +8,7 @@ $(".form-search").submit(function(e) {
         
         e.preventDefault();
         $("#relatedBand").empty();
+        $("#events").empty();
         var find = ' ';
         var re = new RegExp(find, 'g');
 
