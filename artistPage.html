@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <title>Artist Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Artist Page</title>   
@@ -42,12 +42,14 @@
             <ul id='events'>
             </ul>
             <h3 id='topTracks'>Featured Tracks</h3>
-               </div>
+            <iframe id= "spotifyPlayer" src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
       <div class="w-50">
-      <div id="artistImage"></div>
+      <!-- <div id="artistImage"></div> -->
+      <img id="artistImage">
       <h2 id='artistName'>Artist Name</h2>
       <button id=favorites>Add To Favorites</button>
-      <div id='spotifyPlayer'><iframe src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
+      
       <h3>Bio</h3>
       <p class="bioText" id='bio'></p>
       <p class='lryicText'>  this is the space for lyrics if we can find them Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore rem, optio consequatur possimus voluptatibus est magni architecto corporis dolore?</p>
@@ -64,8 +66,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
    <script src="assets/javascript/moment.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   <script src='assets/javascript/javascript.js'></script>
    <script src="assets/javascript/spotify.js"></script>
+   <!-- <script src='assets/javascript/javascript.js'></script> -->
+   
    
     </body>
 </html>
