@@ -10,7 +10,7 @@
     <title>Artist Page</title>   
 </head>
 <body class='container'>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navbar-default'>
         <a class="navbar-brand" href='index.html'>Music App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,17 +37,16 @@
             <h3 id='eventTitle'>Upcoming Events</h3>
             <ul id='events'>
             </ul>
-            <h3 id='topTracks'>Featured Tracks</h3>
                </div>
       <div class="w-50">
-      <img src=http://placekitten.com/200/200 id="artistImage">
+      <img class="rounded mx-auto d-block img-thumbnail" src=http://placekitten.com/200/200 id="artistImage">
       <h2 id='artistName'>Artist Name</h2>
       <div id='spotifyPlayer'><iframe src="https://open.spotify.com/embed/artist/5aIqB5nVVvmFsvSdExz408" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>
       <h3>Bio</h3>
       <p class="bioText" id='bio'></p>
       <p class='lryicText'>  this is the space for lyrics if we can find them Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tempore rem, optio consequatur possimus voluptatibus est magni architecto corporis dolore?</p>
     </div>
-   <div>
+   <div class=relatedBand>
        <h2>Related Artists</h2>
        <div class='border col-lg-8' id=relatedBand></div>
    </div>
