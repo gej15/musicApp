@@ -1,15 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Search</title>
+    <title>Login</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
+  </head>
   <body class='container'>
  
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,7 +39,18 @@
         </div>
     </nav>
 
-    <h1>this is the search page</h1>   
+    <div class="card-body login">
+        <form>
+          <div class="form-group row">
+            <label class='offset-lg-4' for="userNameLogin">User Name</label>
+            <input class="form-control offset-lg-4 col-lg-4" id="userNameLogin" type="text">
+          </div>
+          <div class="form-group row">
+            <label class='offset-lg-4' for="passwordLogin">Password</label>
+            <input class="form-control offset-lg-4 col-lg-4" id="passwordLogin" type="password">
+          </div>
+          <button class="btn btn-primary offset-lg-4" id="loginUser" type="submit1">Submit</button>
+      </form> 
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
