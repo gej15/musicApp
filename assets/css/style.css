@@ -1,3 +1,7 @@
+img {
+    max-width: 650px;
+    height: auto;
+}
 #signout{
   display: none;
 }
@@ -24,7 +28,7 @@
 
  #relatedBand {
    border: black solid 5px;
-   width: 900px;
+   width: 750px;
    height: 400px;
  }
 

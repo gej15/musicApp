@@ -45,7 +45,7 @@ $(".form-search").submit(function(e) {
                 //   console.log(response);
                   //console.log (response.artist.bio.summary);
                   let lastFMsummary = response.artist.bio.summary;
-                  $('#bio').text(lastFMsummary);
+                  $('#bio').html(lastFMsummary);
                   $('#artistName').text(response.artist.name)
                   
                   for (let i = 0; i < 5; i++){
