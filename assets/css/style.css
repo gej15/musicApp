@@ -59,9 +59,10 @@
  }
 
  #relatedBand {
-   border: black solid 5px;
+   /* border: black solid 3px; */
    width: 750px;
    height: 400px;
+
  }
 
  #favorites {
