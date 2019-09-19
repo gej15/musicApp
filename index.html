@@ -9,20 +9,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=New+Rocker&display=swap" rel="stylesheet">
   </head>
-  <body class='container'>
+  <body class='container index'>
       
  
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href='index.html'>Music App</a>
+      <a class="navbar-brand musicAppText" href='index.html'>Music App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto ">
-          <li class="nav-item">
-              <a class="nav-link" href='searchPage.html'>Search Page</a>
-          </li>
           <form class="form-search">
               <input type="text" class="input-medium search-query" id="newArtist">
               <button type="submit" id=artistSearch class="btn">Search</button>
@@ -41,7 +39,7 @@
       </div>
   </nav>
 
-    <h1>Add loading page picture and headings</h1>   
+    <h1 class='d-flex justify-content-center p-4' id=loadingTitle>Search for bands or login in to use the full site</h1>   
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

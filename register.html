@@ -10,69 +10,68 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=New+Rocker&display=swap" rel="stylesheet">
   </head>
-  <body class='container'>
- 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href='index.html'>Music App</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto ">
-            <li class="nav-item">
-                <a class="nav-link" href='searchPage.html'>Search Page</a>
-            </li>
-            <form class="form-search">
-                <input type="text" class="input-medium search-query" id="newArtist">
-                <button type="submit" id=artistSearch class="btn">Search</button>
-            </form>
-            </ul>
-            <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" id=regButton type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" id=register href="register.html">Register</a>
-                  <a class="dropdown-item" id=login href="login.html">Login</a>
-                  <a class="dropdown-item" id=signout href="#">Signout</a>
+  <body class='container index'>
+    <div class=background-white>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand musicAppText" href='index.html'>Music App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto ">
+                <form class="form-search">
+                    <input type="text" class="input-medium search-query" id="newArtist">
+                    <button type="submit" id=artistSearch class="btn">Search</button>
+                </form>
+                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" id=regButton type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" id=register href="register.html">Register</a>
+                      <a class="dropdown-item" id=login href="login.html">Login</a>
+                      <a class="dropdown-item" id=userLink href="user.html">User Page</a>
+                      <a class="dropdown-item" id=signout href="#">Signout</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="card-body">
-        <form class="register">
-            <h2 class=offset-lg-5>Register</h2>
-          <div class="form-group row">
-            <label class='offset-lg-4' for="userName">User Name</label>
-            <input class="form-control offset-lg-4 col-lg-4" id="userName" type="text">
-          </div>
-          <div class="form-group row">
-            <label class='offset-lg-4' for="password">Password</label>
-            <input class="form-control offset-lg-4 col-lg-4" id="password" type="password">
-          </div>
-          <div class="form-group row">
-              <label class='offset-lg-4' for='firstName'>First Name</label>
-              <input class="form-control offset-lg-4 col-lg-4" id="firstName" type="text">
-          </div>
-          <div class="form-group row">
-            <label class='offset-lg-4' for='userLocation'>City</label>
-            <input class="form-control offset-lg-4 col-lg-4" id="userLocation" type="text">
+        <div class="card-body">
+            <form class="register">
+                <h2 class=offset-lg-5>Register</h2>
+              <div class="form-group row">
+                <label class='offset-lg-4' for="userName">User Name</label>
+                <input class="form-control offset-lg-4 col-lg-4" id="userName" type="text">
+              </div>
+              <div class="form-group row">
+                <label class='offset-lg-4' for="password">Password</label>
+                <input class="form-control offset-lg-4 col-lg-4" id="password" type="password">
+              </div>
+              <div class="form-group row">
+                  <label class='offset-lg-4' for='firstName'>First Name</label>
+                  <input class="form-control offset-lg-4 col-lg-4" id="firstName" type="text">
+              </div>
+              <div class="form-group row">
+                <label class='offset-lg-4' for='userLocation'>City</label>
+                <input class="form-control offset-lg-4 col-lg-4" id="userLocation" type="text">
+              </div>
+              <button class="btn btn-primary offset-lg-4" id="registerUser" type="submit">Submit</button>
+          </form>   
         </div>
-          <button class="btn btn-primary offset-lg-4" id="registerUser" type="submit">Submit</button>
-      </form>   
-    
-    <!-- Optional JavaScript -->
-    
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   
-    <script src="assets/javascript/moment.js"></script>
-    <script src='assets/javascript/javascript.js'></script>
-    
+        <!-- Optional JavaScript -->
+        
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+        <script src="assets/javascript/moment.js"></script>
+        <script src='assets/javascript/javascript.js'></script>
+        
 
 </body>
 </html>

@@ -1,7 +1,28 @@
-img {
-    max-width: 650px;
-    height: auto;
+.index {
+   background: url(../images/consertPic.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+.userPage {
+  text-align: center;
+  justify-content: center;
+}
+
+#savedArtist{
+  margin-left: 7%;
+}
+#loadingTitle {
+  font-family: 'New Rocker', cursive;
+  color: white;
+  text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+}
+.musicAppText{
+  font-family: 'New Rocker', cursive;
+}
+
 #signout{
   display: none;
 }
@@ -20,6 +41,17 @@ img {
   width: 200px;
   margin-left: 15px;
 }
+
+.userArtist{
+  float: left;
+  display: inline;
+  width: 175px;
+  height: 230px;
+  margin-bottom: 15px;
+  margin-left: 15px; 
+  background: white;
+  text-align: center;
+}
  .relatedArtistPic {
    width: 150px;
    height: 150px;
@@ -35,6 +67,30 @@ img {
  #favorites {
    margin-bottom: 6px;
  }
+
+ .picPlayerSpacing {
+   width: 660px;
+   height: 400px;
+   position: relative;
+ }
+
+ #spotifyPlayer{
+   position: absolute;
+   top: 0;
+   right: 0;
+ }
+
+.aristPageDiv {
+  height: 1275px;
+}
+
+.link {
+  margin-bottom: 0px;
+}
+
+.eventClass {
+  margin-bottom: -1px;
+}
 
 
 
@@ -93,9 +149,9 @@ border-color: #fff;
 color: #0A2061;
 }
 
-.lryicText{
+/* .lryicText{ */
 /* border-style: solid; */
-}
+/* } */
 
 
 /* CODE PEN */
@@ -114,14 +170,14 @@ color: #0A2061;
  margin: 100;
 } */
 
-    margin:30px;
+    /* margin:30px;
     font-size: 20px;
     color:black;
     text-align: left;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
-  }
+    animation: glow 1s ease-in-out infinite alternate; */
+  /* } */
   @-webkit-keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0A2061, 0 0 40px #0A2061, 0 0 50px #0A2061, 0 0 60px #0A2061, 0 0 70px 0 0 #0A2061;
