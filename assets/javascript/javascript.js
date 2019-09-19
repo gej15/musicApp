@@ -402,7 +402,7 @@ $(document).ready(function(){
     var re = new RegExp(find, 'g');
 
     search1 = search.replace(re, '+');
-    let accessToken = "BQDwzkMSSlU410MNJSb-1DiBBW84qJOP8hEm3k3XQ4dFu5V8Sw9-UyiOHc2SQ-iU_sDZFIyVWryLrOfx9W559zYtG5YzlZH0GcNoNVKiw2ERMVRmVl7SvAicxebTxwlbSb6K5XE2XWNZD15Q9LVMDkQV3a8ZZkDxBKoo3Q"
+    let accessToken = "BQCxELxjtIjr90TsyfqtttG9mx6oVGtKPLs_9cwvgqAGpAjU5IzybEel4EwIEExYy90cfGkvmoTbZJTv4QztyezNxTPSD5Hx4OsMbdus901Rm74mAwJlgHyqJUoAizDQnXTolOnLq-WcXOuUx4eM5KpxXPE1Pdn8rX92yQ"
 
     //let accessToken = "BQA6DBkFWU5jW2AN-vxoTlF0c-0FSxU6KhxD_jQY9pyWqNX4lrROMz7YYcwceMMGpj7T6af8u_Is4G76y5NEOvjMTj1aEyB5JaWEfrkglAxrfgjoLQa5EJ14Pl5zGZW3v66wmsHy7FJcmKOArSVM8TRyx59_9Lw"
     let spotifyApi = 'https://api.spotify.com/v1/search?query=' + search1 + '&type=artist'
