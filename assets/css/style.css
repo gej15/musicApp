@@ -1,7 +1,96 @@
+.index {
+   background: url(../images/consertPic.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.userPage {
+  text-align: center;
+  justify-content: center;
+}
+
+#savedArtist{
+  margin-left: 7%;
+}
+#loadingTitle {
+  font-family: 'New Rocker', cursive;
+  color: white;
+  text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+}
+.musicAppText{
+  font-family: 'New Rocker', cursive;
+}
+
 #signout{
   display: none;
 }
 
+#userLink{
+  display: none;
+}
+
+#favorites {
+  display: none;
+}
+
+.relatedArtist {
+  float: left;
+  display: inline;
+  width: 200px;
+  margin-left: 15px;
+}
+
+.userArtist{
+  float: left;
+  display: inline;
+  width: 175px;
+  height: 230px;
+  margin-bottom: 15px;
+  margin-left: 15px; 
+  background: white;
+  text-align: center;
+}
+ .relatedArtistPic {
+   width: 150px;
+   height: 150px;
+   margin-top: 8px;
+ }
+
+ #relatedBand {
+   border: black solid 5px;
+   width: 750px;
+   height: 400px;
+ }
+
+ #favorites {
+   margin-bottom: 6px;
+ }
+
+ .picPlayerSpacing {
+   width: 660px;
+   height: 400px;
+   position: relative;
+ }
+
+ #spotifyPlayer{
+   position: absolute;
+   top: 0;
+   right: 0;
+ }
+
+.aristPageDiv {
+  height: 1275px;
+}
+
+.link {
+  margin-bottom: 0px;
+}
+
+.eventClass {
+  margin-bottom: -1px;
+}
 
 
 
