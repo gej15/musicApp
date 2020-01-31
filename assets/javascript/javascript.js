@@ -172,27 +172,26 @@ $(document).ready(function(){
     addBandToFavorites()
   
   function mainBandPic() {
-      let testUrlPic = 'https://rest.bandsintown.com/artists/' + currentArtist + '?app_id=1e140eabdce95250b1ad6075934a113d'
-                      $.ajax({
-                          url: testUrlPic,
-                          method: 'GET',
-                      })
-                          .then(function(response){
-                               console.log(response)
-                                      let mainBandPic = $('<img>')
-                                      let bandPic = response.thumb_url  
-                                    //   console.log(bandPic) 
-                                      mainBandPic.attr('src', bandPic)
-                                    //   console.log(mainBandPic)
-                                      $('#artistImage').append(mainBandPic).val()
-                                  
-                              })
-                      }
+      let testUrlPic = 'https://rest.bandsintown.com/artists/' + currentArtist + '?app_id=f39b08f724f90fef19bf1f590d0bc73f'
+        $.ajax({
+            url: testUrlPic,
+            method: 'GET',
+        })
+            .then(function(response){
+                console.log(response)
+                let mainBandPic = $('<img>')
+                let bandPic = response.thumb_url  
+                //   console.log(bandPic) 
+                mainBandPic.attr('src', bandPic)
+                //   console.log(mainBandPic)
+                $('#artistImage').append(mainBandPic).val()
+            })
+        }
     mainBandPic()
   
   
      function testEvents() {
-      let testUrlEvents = 'https://rest.bandsintown.com/artists/' + currentArtist + '/events?app_id=1e140eabdce95250b1ad6075934a113d'
+      let testUrlEvents = 'https://rest.bandsintown.com/artists/' + currentArtist + '/events?app_id=f39b08f724f90fef19bf1f590d0bc73f'
       $.ajax({
           url: testUrlEvents,
           method: 'GET',
@@ -208,8 +207,6 @@ $(document).ready(function(){
             }
                   for (i = 0; i < response.length; i++){
                       console.log(response.length)
-                  
-                   
                       let city = response[i].venue.city
                       // console.log (city)
                       let date = moment(response[i].datetime).format('MMM Do');
@@ -218,7 +215,6 @@ $(document).ready(function(){
                       event.attr({
                           src: response[i].offers[0].url,
                           class: 'eventClass'
-  
                       })   
                       $('#events').append(event) 
                   }
@@ -232,8 +228,6 @@ $(document).ready(function(){
       console.log($(this).attr('src'))
       window.open($(this).attr('src'))
   }
- 
-  
   //lastFM API 
 
     function lastFMevent() {
@@ -262,7 +256,7 @@ $(document).ready(function(){
                     let relatedBandName = $('<p>')
                     let band = response.artist.similar.artist[i].name
                     //   console.log(band)
-                    let testUrl = 'https://rest.bandsintown.com/artists/' + band + '?app_id=1e140eabdce95250b1ad6075934a113d'
+                    let testUrl = 'https://rest.bandsintown.com/artists/' + band + '?app_id=f39b08f724f90fef19bf1f590d0bc73f'
                     let bandPic = ''
                         $.ajax({
                             url: testUrl,
@@ -270,26 +264,21 @@ $(document).ready(function(){
                             })
                             .then(function(response){
                                 //   console.log(response) 
-                                
-                                        bandPic = response.thumb_url  
-                                        //   console.log(bandPic) 
-                                        relatedBandPic.attr({src: bandPic,
-                                            class: 'relatedArtistPic'
-                                        })
-                                        relatedBandName.text(band)
-                                        relatedBandName.attr({
-                                            class: 'link',
-                                            'bandName': band,
-                                            })
-                                        relatedBand.append(relatedBandPic)
-                                        relatedBand.append(relatedBandName)
-                                        $('#relatedBand').append(relatedBand)
-                                    
+                                bandPic = response.thumb_url  
+                                //   console.log(bandPic) 
+                                relatedBandPic.attr({src: bandPic,
+                                    class: 'relatedArtistPic'
+                                })
+                                relatedBandName.text(band)
+                                relatedBandName.attr({
+                                    class: 'link',
+                                    'bandName': band,
+                                    })
+                                relatedBand.append(relatedBandPic)
+                                relatedBand.append(relatedBandName)
+                                $('#relatedBand').append(relatedBand)
                             })
-                    }
-    
-                    
-                        
+                    }          
             })
         }
     lastFMevent();
@@ -301,7 +290,6 @@ $(document).ready(function(){
       let newArtist = $(this).attr('bandName')
       localStorage.setItem('artist', JSON.stringify(newArtist))
     //   console.log(newArtist)
-  
       location.href = 'artistPage.html'   
   }
  
@@ -312,7 +300,6 @@ $(document).ready(function(){
     // console.log(currentArtist)
             let userName = JSON.parse(localStorage.getItem('userName'))
             // console.log(userName)
-
                 let rootRef = firebase.database().ref(userName);
                 let favoriteBands = ''
                     rootRef.once("value")
@@ -331,11 +318,10 @@ $(document).ready(function(){
                             console.log(userName)
                             let location = snapshot.val().city
                             //console.log(location)
-                            
                             for (let i = 1 ; i < bandsArray.length; i++) {
                                 
                                 //console.log(location)
-                                let bandUrl = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '?app_id=1e140eabdce95250b1ad6075934a113d'
+                                let bandUrl = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '?app_id=f39b08f724f90fef19bf1f590d0bc73f'
                                 $.ajax({
                                     url: bandUrl,
                                     method: 'GET',
@@ -356,7 +342,7 @@ $(document).ready(function(){
                                         class: 'link',
                                         'bandName': band,
                                         })
-                                        let testUrlEvents = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '/events?app_id=1e140eabdce95250b1ad6075934a113d'
+                                        let testUrlEvents = 'https://rest.bandsintown.com/artists/' + bandsArray[i] + '/events?app_id=f39b08f724f90fef19bf1f590d0bc73f'
                                      $.ajax({
                                         url: testUrlEvents,
                                         method: 'GET',
@@ -385,11 +371,8 @@ $(document).ready(function(){
                                     favoriteBand.append(favoriteBandPic)
                                     favoriteBand.append(favoriteBandName)
                                     $('#savedArtist').append(favoriteBand)
-                                })
-                            
+                                }) 
                         }
-                        
-
                     })  
     }
   
@@ -421,7 +404,4 @@ $(document).ready(function(){
             console.log(spotifyId)
             $('iframe').attr("src", "https://open.spotify.com/embed/artist/"+ spotifyId )
         })
-
-    
-
 })   
